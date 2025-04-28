@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit List</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <h1>Edit List Name</h1>
+
+  <form action="/lists/<%= list._id %>/edit" method="POST">
+    <input type="text" name="name" value="<%= list.name %>" required />
+    <button type="submit">Save</button>
+  </form>
+
+  <p><a href="/lists">Back to Lists</a> | <a href="/logout">Logout</a></p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Search Response Codes</h1>
+  <form action="/search/filter" method="POST">
+    <input type="text" name="code" placeholder="Enter response code (e.g. 203, 2xx, 21x)" required />
+    <button type="submit">Search</button>
+  </form>
+
+  <% if (images.length > 0) { %>
+    <h2>Results:</h2>
+    <% images.forEach(image => { %>
+      <img src="<%= image %>" alt="dog" width="200px" style="margin: 10px;" />
+    <% }) %>
+
+    <form action="/search/save" method="POST">
+      <input type="hidden" name="code" value="<%= code %>">
+      <input type="text" name="name" placeholder="Enter name for the list" required />
+      <button type="submit">Save List</button>
+    </form>
+  <% } %>
+
+  <p><a href="/lists">View My Lists</a> | <a href="/logout">Logout</a></p>
+</body>
+</html>

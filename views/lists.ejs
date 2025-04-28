@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Lists</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>My Saved Lists</h1>
+
+  <% if (lists.length === 0) { %>
+    <p>No lists saved yet.</p>
+  <% } else { %>
+    <ul>
+      <% lists.forEach(list => { %>
+        <li>
+          <a href="/lists/<%= list._id %>"><%= list.name %></a> 
+          - <form action="/lists/<%= list._id %>/delete" method="POST" style="display: inline;">
+              <button type="submit">Delete</button>
+            </form>
+          - <a href="/lists/<%= list._id %>/edit">Edit</a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <p><a href="/search">Back to Search</a> | <a href="/logout">Logout</a></p>
+</body>
+</html>
